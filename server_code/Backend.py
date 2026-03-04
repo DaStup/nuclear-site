@@ -28,7 +28,6 @@ def query_reactor_data(reactorID:int):
 def query_reactors(facilityID: int):
   query = f"SELECT ReactorID FROM Reactor WHERE FacilityID={facilityID};"
   with sqlite3.connect(data_files["nuclear_facility.db"]) as conn:
-    conn.row_factory = sqlite3.Row
     cur = conn.cursor()
     result = cur.execute(query).fetchall()
   return result

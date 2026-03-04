@@ -6,15 +6,22 @@ import anvil.tables.query as q
 from anvil.tables import app_tables
 
 
+
+
 class SiteOverview(SiteOverviewTemplate):
   def __init__(self, **properties):
     self.init_components(**properties)
     site_name = properties['my_parameter']
     self.headline_nuclear_site.text = site_name
-    self.canvas_reactor_data.height = 500
+    self.canvas_reactor_data.height = 300
     self.canvas_reactor_data.reset_context()
     site_id = anvil.server.call("query_facility_id", f"{site_name}")[0]['FacilityID']
-    self.drop_down_reactor.items = anvil.server.call("query_reactors", f"{site_id}")
+    reactors_ids = [int(item[0]) for item in anvil.server.call("query_reactors", f"{site_id}")]
+    reactor_names = []
+    for id in reactors_ids:
+      reactor_names.append("Reactor " + str(id));
+    self.drop_down_reactor.items = list(zip(reactor_names, reactors_ids))
+    self.reactor_data = anvil.server.call("query_reactor_data", f"{self.drop_down_reactor.selected_value}")
   
 
   @handle("canvas_reactor_data", "reset")
@@ -24,9 +31,8 @@ class SiteOverview(SiteOverviewTemplate):
     rdc.stroke_style = "#2196F3"
     rdc.line_width = 3
     rdc.fill_style = "#FF0000"
-    rdc.fill_rect(10, 10, 10, 100)
-    rdc.fill_rect(30, 10, 10, 100)
+    rdc.fill_rect(10, 10, 10, self.reactor_data["Pressure"])
 
   @handle("drop_down_reactor", "change")
   def drop_down_reactor_change(self, **event_args):
-    pass
+    self.reactor_data = anvil.server.call("query_reactor_data", f"{self.drop_down_reactor.selected_value}")
