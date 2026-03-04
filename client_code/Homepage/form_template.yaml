@@ -4,10 +4,16 @@ components:
     name: headline_1
     properties: {role: headline, text: 'Choose nuclear site to observe and manage:'}
     type: Label
-  - layout_properties: {grid_position: 'VPYKTH,RWISMM'}
+  - event_bindings: {}
+    layout_properties: {grid_position: 'VPYKTH,RWISMM'}
     name: drop_down_nuclear_site
     properties: {}
     type: DropDown
+  - event_bindings: {}
+    layout_properties: {grid_position: 'MCRJFD,XVDXAN'}
+    name: button_site_manage
+    properties: {text: Manage}
+    type: Button
   layout_properties: {slot: default}
   name: content_panel
   properties: {}

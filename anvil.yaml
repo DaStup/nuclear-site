@@ -17,8 +17,8 @@ db_schema:
       type: string
     server: full
     title: Files
-name: Material Design 1
-package_name: Material_Design_1
+name: Nuclear Site
+package_name: Nuclear_Site
 runtime_options:
   client_version: '3'
   legacy_features: {bootstrap3: true, class_names: true}
@@ -31,4 +31,5 @@ services:
 - client_config: {}
   server_config: {file_table: files}
   source: /runtime/services/anvil/files.yml
-startup_form: Form1
+startup: {module: Homepage, type: form}
+startup_form: null

@@ -4,16 +4,40 @@ from anvil.tables import app_tables
 import anvil.files
 from anvil.files import data_files
 import anvil.server
+import sqlite3
 
-# This is a server module. It runs on the Anvil server,
-# rather than in the user's browser.
-#
-# To allow anvil.server.call() to call functions here, we mark
-# them with @anvil.server.callable.
-# Here is an example - you can replace it with your own:
-#
-# @anvil.server.callable
-# def say_hello(name):
-#   print("Hello, " + name + "!")
-#   return 42
-#
+@anvil.server.callable
+def query_nuclear_sites(self):
+  query = "SELECT location FROM Facility;"
+  with sqlite3.connect(data_files["nuclear_facility.db"]) as conn:
+    conn.row_factory = sqlite3.Row
+    cur = conn.cursor()
+    result = cur.execute(query).fetchall()
+  return [dict(row) for row in result]
+
+@anvil.server.callable
+def query_reactor_data(reactorID:int):
+  query = f"SELECT Pressure, Temperature, NeutronFlux, ControlRodPos FROM Reactor WHERE ReactorID={reactorID};"
+  with sqlite3.connect(data_files["nuclear_facility.db"]) as conn:
+    conn.row_factory = sqlite3.Row
+    cur = conn.cursor()
+    result = cur.execute(query).fetchall()
+  return [dict(row) for row in result]
+
+@anvil.server.callable
+def query_reactors(facilityID: int):
+  query = f"SELECT ReactorID FROM Reactor WHERE FacilityID={facilityID};"
+  with sqlite3.connect(data_files["nuclear_facility.db"]) as conn:
+    conn.row_factory = sqlite3.Row
+    cur = conn.cursor()
+    result = cur.execute(query).fetchall()
+  return result
+
+@anvil.server.callable
+def query_facility_id(facilityName: str):
+  query = f"SELECT FacilityID FROM Facility WHERE location='{facilityName}';"
+  with sqlite3.connect(data_files["nuclear_facility.db"]) as conn:
+    conn.row_factory = sqlite3.Row
+    cur = conn.cursor()
+    result = cur.execute(query).fetchall()
+  return [dict(row) for row in result]
