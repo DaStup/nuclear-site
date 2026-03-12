@@ -22,11 +22,34 @@ class SiteOverview(SiteOverviewTemplate):
       reactor_names.append("Reactor " + str(id));
     self.drop_down_reactor.items = list(zip(reactor_names, reactors_ids))
     self.reactor_data = anvil.server.call("query_reactor_data", f"{self.drop_down_reactor.selected_value}")
-    self.plot_reactor.data = [
+    
+    self.plot_pressure.data = [
       go.Bar(
         x = [0],
         y = [self.reactor_data[0]["Pressure"]],
         name = 'Pressure'
+      )
+    ]
+    self.plot_temp.data = [
+      go.Bar(
+        x = [0],
+        y = [self.reactor_data[0]["Temperature"]],
+        name = 'Temperature'
+      )
+    ]
+    
+    self.plot_neutron.data = [
+      go.Bar(
+        x = [0],
+        y = [self.reactor_data[0]["NeutronFlux"]],
+        name = 'Temperature'
+      )
+    ]
+    self.plot_rod.data = [
+      go.Bar(
+        x = [0],
+        y = [self.reactor_data[0]["ControlRodPos"]],
+        name = 'Temperature'
       )
     ]
    
@@ -34,10 +57,32 @@ class SiteOverview(SiteOverviewTemplate):
   @handle("drop_down_reactor", "change")
   def drop_down_reactor_change(self, **event_args):
     self.reactor_data = anvil.server.call("query_reactor_data", f"{self.drop_down_reactor.selected_value}")
-    self.plot_reactor.data = [
+    self.plot_pressure.data = [
       go.Bar(
         x = [0],
         y = [self.reactor_data[0]["Pressure"]],
         name = 'Pressure'
+      )
+    ]
+    self.plot_temp.data = [
+      go.Bar(
+        x = [0],
+        y = [self.reactor_data[0]["Temperature"]],
+        name = 'Temperature'
+      )
+    ]
+    
+    self.plot_neutron.data = [
+      go.Bar(
+        x = [0],
+        y = [self.reactor_data[0]["NeutronFlux"]],
+        name = 'Temperature'
+      )
+    ]
+    self.plot_rod.data = [
+      go.Bar(
+        x = [0],
+        y = [self.reactor_data[0]["ControlRodPos"]],
+        name = 'Temperature'
       )
     ]

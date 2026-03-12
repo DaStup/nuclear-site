@@ -5,15 +5,15 @@ components:
     properties: {role: headline}
     type: Label
   - layout_properties: {grid_position: 'XXGGUV,LOJLII IWGJGI,XRMQYO'}
-    name: plot_2
+    name: plot_temp
     properties: {}
     type: Plot
   - layout_properties: {grid_position: 'XXGGUV,LOJLII WRJYHO,GKRTOT'}
-    name: plot_1
+    name: plot_rod
     properties: {}
     type: Plot
   - layout_properties: {grid_position: 'XXGGUV,PUFCEB BXSIGX,ROBVJH'}
-    name: plot_3
+    name: plot_neutron
     properties: {}
     type: Plot
   - layout_properties: {grid_position: 'XXGGUV,PUFCEB LTWOTI,MOTOGJ'}
