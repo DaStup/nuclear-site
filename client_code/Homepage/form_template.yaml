@@ -11,8 +11,13 @@ components:
     type: DropDown
   - event_bindings: {}
     layout_properties: {grid_position: 'MCRJFD,XVDXAN'}
-    name: button_site_manage
-    properties: {text: Manage}
+    name: button_reactor
+    properties: {text: Manage Reactor}
+    type: Button
+  - event_bindings: {}
+    layout_properties: {grid_position: 'TPZLNP,COYECQ'}
+    name: button_overseer
+    properties: {text: Manage Overseer}
     type: Button
   layout_properties: {slot: default}
   name: content_panel

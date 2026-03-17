@@ -16,6 +16,12 @@ class Homepage(HomepageTemplate):
       nuclear_sites_list.append(site['location'])
     self.drop_down_nuclear_site.items = nuclear_sites_list
 
-  @handle("button_site_manage", "click")
-  def button_site_manage_click(self, **event_args):
-     open_form('SiteOverview', my_parameter=f"{self.drop_down_nuclear_site.selected_value}")
+  @handle("button_reactor", "click")
+  def button_reactor_click(self, **event_args):
+    site_id = anvil.server.call("query_facility_id", self.drop_down_nuclear_site.selected_value)
+    open_form('SiteOverview', site_id=f"{site_id}")
+
+  @handle("button_overseer", "click")
+  def button_overseer_click(self, **event_args):
+    site_id = anvil.server.call("query_facility_id", self.drop_down_nuclear_site.selected_value)
+    open_form('OverseerManagement', site_id=f"{site_id}")

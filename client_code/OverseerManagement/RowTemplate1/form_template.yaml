@@ -1,0 +1,10 @@
+components:
+- event_bindings: {}
+  layout_properties: {column: UOJSSS}
+  name: button_delete
+  properties: {text: DELETE}
+  type: Button
+container:
+  properties: {bold: false}
+  type: DataRowPanel
+is_package: true

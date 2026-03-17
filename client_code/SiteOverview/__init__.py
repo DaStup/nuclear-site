@@ -13,10 +13,9 @@ class SiteOverview(SiteOverviewTemplate):
   reactor_data = [{0}, {0}]
   def __init__(self, **properties):
     self.init_components(**properties)
-    site_name = properties['my_parameter']
-    self.headline_nuclear_site.text = site_name
-    site_id = anvil.server.call("query_facility_id", f"{site_name}")[0]['FacilityID']
-    reactors_ids = [int(item[0]) for item in anvil.server.call("query_reactors", f"{site_id}")]
+    self.site_id = properties['site_id']
+    self.headline_nuclear_site.text = anvil.server.call("query_site_name", self.site_id)[0][0]
+    reactors_ids = [int(item[0]) for item in anvil.server.call("query_reactors", f"{self.site_id}")]
     reactor_names = []
     for id in reactors_ids:
       reactor_names.append("Reactor " + str(id));
@@ -56,6 +55,7 @@ class SiteOverview(SiteOverviewTemplate):
   
   @handle("drop_down_reactor", "change")
   def drop_down_reactor_change(self, **event_args):
+    print(self.drop_down_reactor.selected_value)
     self.reactor_data = anvil.server.call("query_reactor_data", f"{self.drop_down_reactor.selected_value}")
     self.plot_pressure.data = [
       go.Bar(
@@ -87,7 +87,14 @@ class SiteOverview(SiteOverviewTemplate):
       )
     ]
 
-  @handle("button_overseer", "click")
-  def button_overseer_click(self, **event_args):
-    """This method is called when the button is clicked"""
-    pass
+  @handle("button_back", "click")
+  def button_back_click(self, **event_args):
+    open_form('Homepage')
+
+  @handle("button_security", "click")
+  def button_security_click(self, **event_args):
+    open_form('SecuritySystems', site_id=f"{self.site_id}", reactor_id=f"{self.drop_down_reactor.selected_value}")
+
+  @handle("button_towers", "click")
+  def button_towers_click(self, **event_args):
+    open_form('CoolingTowers', site_id=f"{self.site_id}", reactor_id=f"{self.drop_down_reactor.selected_value}")

@@ -1,0 +1,35 @@
+components:
+- components:
+  - layout_properties: {grid_position: 'TUPBLL,ETZDKF'}
+    name: headline_1
+    properties: {role: headline, text: Security Systems}
+    type: Label
+  - components:
+    - name: repeating_panel_security
+      properties: {item_template: SecuritySystems.RowTemplate2}
+      type: RepeatingPanel
+    layout_properties: {grid_position: 'MEMVSQ,ZOYUAC'}
+    name: data_grid_1
+    properties:
+      columns:
+      - {data_key: Type, id: JKSDUP, title: Type}
+      - {data_key: InstallDate, id: VJQQOR, title: Installation Date}
+      - {data_key: Status, id: OJLQEN, title: Status}
+    type: DataGrid
+  layout_properties: {slot: default}
+  name: content_panel
+  properties: {}
+  type: ColumnPanel
+- layout_properties: {slot: nav-right}
+  name: navbar_links
+  properties: {}
+  type: FlowPanel
+- event_bindings: {}
+  layout_properties: {slot: title}
+  name: button_back
+  properties: {background: 'theme:Gray 800', foreground: 'theme:White', text: Back, visible: true}
+  type: Button
+container:
+  properties: {html: '@theme:standard-page.html'}
+  type: HtmlTemplate
+is_package: true

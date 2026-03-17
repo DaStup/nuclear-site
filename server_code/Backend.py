@@ -39,4 +39,38 @@ def query_facility_id(facilityName: str):
     conn.row_factory = sqlite3.Row
     cur = conn.cursor()
     result = cur.execute(query).fetchall()
+  return result[0]["FacilityID"]
+
+
+@anvil.server.callable
+def query_overseer(facility_id : int):
+  query = f"SELECT * FROM Overseer WHERE FacilityID={facility_id};"
+  with sqlite3.connect(data_files["nuclear_facility.db"]) as conn:
+    conn.row_factory = sqlite3.Row
+    cur = conn.cursor()
+    result = cur.execute(query).fetchall()
   return [dict(row) for row in result]
+
+
+@anvil.server.callable
+def query_site_name(site_id: int):
+  query = f"SELECT location FROM Facility WHERE FacilityID={site_id};"
+  with sqlite3.connect(data_files["nuclear_facility.db"]) as conn:
+    cur = conn.cursor()
+    result = cur.execute(query).fetchall()
+  return result
+
+@anvil.server.callable
+def delete_overseer(overseer_id : int):
+  query = f"DELETE FROM Overseer WHERE OverseerID={overseer_id};"
+  with sqlite3.connect(data_files["nuclear_facility.db"]) as conn:
+    cur = conn.cursor()
+    cur.execute(query)
+
+
+@anvil.server.callable
+def insert_overseer(Firstname: str, Lastname: str, Clearance : int, site_id : int):
+  query = f"INSERT INTO Overseer (Firstname, Lastname, Clearance, FacilityID) VALUES ('{Firstname}', '{Lastname}', {Clearance}, {site_id});"
+  with sqlite3.connect(data_files["nuclear_facility.db"]) as conn:
+    cur = conn.cursor()
+    cur.execute(query)

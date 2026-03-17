@@ -31,8 +31,13 @@ components:
       type: DropDown
     - event_bindings: {}
       layout_properties: {}
-      name: button_overseer
-      properties: {background: 'theme:Gray 800', text: Manage Overseer}
+      name: button_security
+      properties: {background: 'theme:Gray 800', text: Manage Security Systems}
+      type: Button
+    - event_bindings: {}
+      layout_properties: {}
+      name: button_towers
+      properties: {background: 'theme:Gray 800', text: Manage Cooling Towers}
       type: Button
     layout_properties: {grid_position: 'WALWND,TMTKSW'}
     name: linear_panel_1
@@ -46,8 +51,9 @@ components:
   name: navbar_links
   properties: {}
   type: FlowPanel
-- layout_properties: {slot: title}
-  name: button_1
+- event_bindings: {}
+  layout_properties: {slot: title}
+  name: button_back
   properties: {background: 'theme:Gray 800', foreground: 'theme:White', text: Back, visible: true}
   type: Button
 container:
