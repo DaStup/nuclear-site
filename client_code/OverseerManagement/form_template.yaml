@@ -60,6 +60,10 @@ components:
   name: button_back
   properties: {background: 'theme:Gray 800', foreground: 'theme:White', text: Back, visible: true}
   type: Button
+- layout_properties: {slot: top-left-btn}
+  name: image_1
+  properties: {height: 43, source: _/theme/309911.svg}
+  type: Image
 container:
   properties: {html: '@theme:standard-page.html'}
   type: HtmlTemplate

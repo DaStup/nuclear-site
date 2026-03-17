@@ -55,7 +55,6 @@ class SiteOverview(SiteOverviewTemplate):
   
   @handle("drop_down_reactor", "change")
   def drop_down_reactor_change(self, **event_args):
-    print(self.drop_down_reactor.selected_value)
     self.reactor_data = anvil.server.call("query_reactor_data", f"{self.drop_down_reactor.selected_value}")
     self.plot_pressure.data = [
       go.Bar(

@@ -15,3 +15,8 @@ class CoolingTowers(CoolingTowersTemplate):
   @handle("button_back", "click")
   def button_back_click(self, **event_args):
     open_form('SiteOverview', site_id=f"{self.site_id}")
+
+  @handle("drop_down_cooling_tower", "change")
+  def drop_down_cooling_tower_change(self, **event_args):
+    """This method is called when an item is selected"""
+    pass

@@ -74,3 +74,19 @@ def insert_overseer(Firstname: str, Lastname: str, Clearance : int, site_id : in
   with sqlite3.connect(data_files["nuclear_facility.db"]) as conn:
     cur = conn.cursor()
     cur.execute(query)
+
+@anvil.server.callable
+def query_security_systems(reactor_id : int):
+  query = f"SELECT * FROM SafetySystems WHERE ReactorID={reactor_id};"
+  with sqlite3.connect(data_files["nuclear_facility.db"]) as conn:
+    conn.row_factory = sqlite3.Row
+    cur = conn.cursor()
+    result = cur.execute(query).fetchall()
+  return [dict(row) for row in result]
+
+@anvil.server.callable
+def update_security_status(security_system_id : int, toggle_value : int):
+  query = f"UPDATE SafetySystems SET Status={toggle_value} WHERE SaftySystemsID={security_system_id};"
+  with sqlite3.connect(data_files["nuclear_facility.db"]) as conn:
+    cur = conn.cursor()
+    cur.execute(query)

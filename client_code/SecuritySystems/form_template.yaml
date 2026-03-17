@@ -15,6 +15,7 @@ components:
       - {data_key: Type, id: JKSDUP, title: Type}
       - {data_key: InstallDate, id: VJQQOR, title: Installation Date}
       - {data_key: Status, id: OJLQEN, title: Status}
+      - {data_key: column_1, id: VURUXG, title: ''}
     type: DataGrid
   layout_properties: {slot: default}
   name: content_panel
@@ -29,6 +30,10 @@ components:
   name: button_back
   properties: {background: 'theme:Gray 800', foreground: 'theme:White', text: Back, visible: true}
   type: Button
+- layout_properties: {slot: top-left-btn}
+  name: image_1
+  properties: {height: 43, source: _/theme/309911.svg}
+  type: Image
 container:
   properties: {html: '@theme:standard-page.html'}
   type: HtmlTemplate

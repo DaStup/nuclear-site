@@ -1,9 +1,9 @@
 color_scheme:
   colors:
-  - {color: '#2196F3', name: Primary 500}
-  - {color: '#1976D2', name: Primary 700}
-  - {color: '#FF9800', name: Secondary 500}
-  - {color: '#F57C00', name: Secondary 700}
+  - {color: '#009688', name: Primary 500}
+  - {color: '#00796B', name: Primary 700}
+  - {color: '#3F51B5', name: Secondary 500}
+  - {color: '#303F9F', name: Secondary 700}
   - {color: '#FFFFFF', name: White}
   - {color: '#FAFAFA', name: Gray 50}
   - {color: '#F5F5F5', name: Gray 100}

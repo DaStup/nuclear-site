@@ -4,6 +4,15 @@ components:
     name: headline_1
     properties: {role: headline, text: Cooling Towers}
     type: Label
+  - layout_properties: {grid_position: 'RSBDJR,JZVERQ'}
+    name: image_2
+    properties: {}
+    type: Image
+  - event_bindings: {}
+    layout_properties: {grid_position: 'EGKVHX,NBSJYU'}
+    name: drop_down_cooling_tower
+    properties: {}
+    type: DropDown
   layout_properties: {slot: default}
   name: content_panel
   properties: {}
@@ -17,6 +26,10 @@ components:
   name: button_back
   properties: {background: 'theme:Gray 800', foreground: 'theme:White', text: Back, visible: true}
   type: Button
+- layout_properties: {slot: top-left-btn}
+  name: image_1
+  properties: {height: 43, source: _/theme/309911.svg}
+  type: Image
 container:
   properties: {html: '@theme:standard-page.html'}
   type: HtmlTemplate
