@@ -86,3 +86,8 @@ class SiteOverview(SiteOverviewTemplate):
         name = 'Temperature'
       )
     ]
+
+  @handle("button_overseer", "click")
+  def button_overseer_click(self, **event_args):
+    """This method is called when the button is clicked"""
+    pass
