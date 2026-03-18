@@ -4,18 +4,34 @@ components:
     name: headline_nuclear_site
     properties: {role: headline}
     type: Label
+  - layout_properties: {grid_position: 'XXGGUV,LOJLII CYJRHT,ESEYNA'}
+    name: label_2
+    properties: {text: Temperature}
+    type: Label
   - layout_properties: {grid_position: 'XXGGUV,LOJLII IWGJGI,XRMQYO'}
     name: plot_temp
     properties: {}
     type: Plot
+  - layout_properties: {grid_position: 'XXGGUV,LOJLII ZIXFCC,QADQKE'}
+    name: label_4
+    properties: {text: Rod Position}
+    type: Label
   - layout_properties: {grid_position: 'XXGGUV,LOJLII WRJYHO,GKRTOT'}
     name: plot_rod
     properties: {}
     type: Plot
+  - layout_properties: {grid_position: 'XXGGUV,PUFCEB IJLORV,DXENQP'}
+    name: label_3
+    properties: {text: Neutron Flux}
+    type: Label
   - layout_properties: {grid_position: 'XXGGUV,PUFCEB BXSIGX,ROBVJH'}
     name: plot_neutron
     properties: {}
     type: Plot
+  - layout_properties: {grid_position: 'XXGGUV,PUFCEB BLFUBP,UEEMYY'}
+    name: label_5
+    properties: {text: Pressure}
+    type: Label
   - layout_properties: {grid_position: 'XXGGUV,PUFCEB LTWOTI,MOTOGJ'}
     name: plot_pressure
     properties: {}

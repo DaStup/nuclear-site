@@ -4,10 +4,52 @@ components:
     name: headline_1
     properties: {role: headline, text: Cooling Towers}
     type: Label
-  - layout_properties: {grid_position: 'RSBDJR,JZVERQ'}
+  - layout_properties: {grid_position: 'WJFAQV,OLEGKW'}
     name: image_2
-    properties: {}
+    properties: {source: _/theme/Nuclear-power-plant.svg}
     type: Image
+  - layout_properties: {grid_position: 'WJFAQV,BYGABF KVYVND,MRZIGD'}
+    name: label_1
+    properties: {text: 'Primary circuit status:'}
+    type: Label
+  - layout_properties: {grid_position: 'WJFAQV,BYGABF GPRLMS,SSYKUR'}
+    name: label_2
+    properties: {text: 'Secondary circuit status:'}
+    type: Label
+  - layout_properties: {grid_position: 'WJFAQV,BYGABF DYSXRE,GSGTES'}
+    name: label_3
+    properties: {text: 'Pressure:'}
+    type: Label
+  - layout_properties: {grid_position: 'WJFAQV,BYGABF QOFNMR,DZORZE'}
+    name: label_4
+    properties: {text: 'Flowrate:'}
+    type: Label
+  - layout_properties: {grid_position: 'WJFAQV,YHUEGF JXTOIU,ZLFHAG'}
+    name: label_status1
+    properties: {}
+    type: Label
+  - event_bindings: {}
+    layout_properties: {grid_position: 'WJFAQV,YHUEGF JXTOIU,KLFNWR'}
+    name: button_toggle_sys1
+    properties: {text: TOggle}
+    type: Button
+  - layout_properties: {grid_position: 'WJFAQV,YHUEGF CALDSY,RFWRCM'}
+    name: label_status2
+    properties: {}
+    type: Label
+  - event_bindings: {}
+    layout_properties: {grid_position: 'WJFAQV,YHUEGF CALDSY,DHKXNC'}
+    name: button_toggle_sys2
+    properties: {text: Toggle}
+    type: Button
+  - layout_properties: {grid_position: 'WJFAQV,YHUEGF AHMRCQ,QVTZVQ'}
+    name: label_pressure
+    properties: {}
+    type: Label
+  - layout_properties: {grid_position: 'WJFAQV,YHUEGF IOMCZM,VNKXCK'}
+    name: label_flowrate
+    properties: {}
+    type: Label
   - event_bindings: {}
     layout_properties: {grid_position: 'EGKVHX,NBSJYU'}
     name: drop_down_cooling_tower
